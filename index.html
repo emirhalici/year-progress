@@ -79,14 +79,14 @@
   }
 
   function getPercentage() {
-    const percentage = (min, max, current) => (current - min) / (max - min);
+    const percentage = (min, max, current) => (current - min) / (max - min) * 100;
     const now = new Date().getTime();
-    return percentage(startOfCurrentYear, endOfCurrentYear, now);
+    return percentage(startOfCurrentYear, endOfCurrentYear, now).toFixed(7);
   }
 
   function setPercentage() {
     const percentage = getPercentage();
-    setText('%' + percentage.toFixed(9));
+    setText('%' + percentage);
   }
 
   setPercentage();
